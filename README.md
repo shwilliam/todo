@@ -8,15 +8,14 @@ A todo CLI
 [![License](https://img.shields.io/npm/l/@shwilliam/todo.svg)](https://github.com/shwilliam/todo/blob/master/package.json)
 
 <!-- toc -->
-
-- [Usage](#usage)
-- [Commands](#commands)
+* [@shwilliam/todo](#shwilliamtodo)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g @shwilliam/todo
 $ t COMMAND
@@ -28,35 +27,39 @@ USAGE
   $ t COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
+* [`t add [TODO]`](#t-add-todo)
+* [`t done [INDEX]`](#t-done-index)
+* [`t help [COMMAND]`](#t-help-command)
+* [`t list [FILTER]`](#t-list-filter)
+* [`t remove [INDEX]`](#t-remove-index)
+* [`t todo [INDEX]`](#t-todo-index)
 
-- [`t hello [FILE]`](#t-hello-file)
-- [`t help [COMMAND]`](#t-help-command)
+## `t add [TODO]`
 
-## `t hello [FILE]`
-
-describe the command here
+add todo
 
 ```
 USAGE
-  $ t hello [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-
-EXAMPLE
-  $ t hello
-  hello world from ./src/hello.ts!
+  $ t add [TODO]
 ```
 
-_See code: [src/commands/hello.ts](https://github.com/shwilliam/todo/blob/v0.1.0/src/commands/hello.ts)_
+_See code: [src/commands/add.ts](https://github.com/shwilliam/todo/blob/v0.1.0/src/commands/add.ts)_
+
+## `t done [INDEX]`
+
+mark as done
+
+```
+USAGE
+  $ t done [INDEX]
+```
+
+_See code: [src/commands/done.ts](https://github.com/shwilliam/todo/blob/v0.1.0/src/commands/done.ts)_
 
 ## `t help [COMMAND]`
 
@@ -75,4 +78,36 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.0.1/src/commands/help.ts)_
 
+## `t list [FILTER]`
+
+list todos
+
+```
+USAGE
+  $ t list [FILTER]
+```
+
+_See code: [src/commands/list.ts](https://github.com/shwilliam/todo/blob/v0.1.0/src/commands/list.ts)_
+
+## `t remove [INDEX]`
+
+remove todo
+
+```
+USAGE
+  $ t remove [INDEX]
+```
+
+_See code: [src/commands/remove.ts](https://github.com/shwilliam/todo/blob/v0.1.0/src/commands/remove.ts)_
+
+## `t todo [INDEX]`
+
+mark as incomplete
+
+```
+USAGE
+  $ t todo [INDEX]
+```
+
+_See code: [src/commands/todo.ts](https://github.com/shwilliam/todo/blob/v0.1.0/src/commands/todo.ts)_
 <!-- commandsstop -->

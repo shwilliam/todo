@@ -32,15 +32,24 @@
   "engines": {
     "node": ">=8.0.0"
   },
-  "files": ["/bin", "/lib", "/npm-shrinkwrap.json", "/oclif.manifest.json"],
+  "files": [
+    "/bin",
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
   "homepage": "https://github.com/shwilliam/todo",
-  "keywords": ["oclif"],
+  "keywords": [
+    "oclif"
+  ],
   "license": "MIT",
   "main": "lib/index.js",
   "oclif": {
     "commands": "./lib/commands",
     "bin": "t",
-    "plugins": ["@oclif/plugin-help"]
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
   },
   "repository": "shwilliam/todo",
   "scripts": {
