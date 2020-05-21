@@ -29,7 +29,7 @@ class TodoList {
   }
 
   list() {
-    return this.todos
+    return this.todos.map((todo, idx) => ({...todo, idx}))
   }
 
   add(title: string, done = false) {
@@ -44,8 +44,11 @@ class TodoList {
   }
 
   done(idx: number, done = true) {
+    if (!this.todos[idx]) return
+
     this.todos[idx].done = done
     this.save()
+    return this.todos[idx]
   }
 }
 

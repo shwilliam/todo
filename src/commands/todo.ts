@@ -1,4 +1,5 @@
 import {Command} from '@oclif/command'
+import * as chalk from 'chalk'
 import {todoList} from '../services'
 
 export default class Todo extends Command {
@@ -10,8 +11,9 @@ export default class Todo extends Command {
     const {args} = this.parse(Todo)
     const {index} = args
 
-    todoList.done(index, false)
+    const updatedTodo = todoList.done(index, false)
 
-    this.log(`Todo #${index} marked as incomplete`)
+    if (updatedTodo) this.log(chalk.green('get to it'))
+    else this.log(chalk.red('huh?'))
   }
 }

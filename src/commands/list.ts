@@ -1,4 +1,5 @@
 import {Command} from '@oclif/command'
+import * as chalk from 'chalk'
 import {todoList} from '../services'
 
 export default class List extends Command {
@@ -10,21 +11,35 @@ export default class List extends Command {
     const {args} = this.parse(List)
     const {filter} = args
 
-    const todos = todoList.list()
+    const allTodos = todoList.list()
 
-    if (todos.length === 0) return this.log('All done')
+    if (allTodos.length === 0) return this.log(chalk.green('all done'))
 
+    let filteredTodos
     switch (filter) {
       case 'todo':
-        this.log(JSON.stringify(todos.filter(({done}) => done === false)))
+        filteredTodos = allTodos.filter(({done}) => done === false)
         break
 
       case 'done':
-        this.log(JSON.stringify(todos.filter(({done}) => done === true)))
+        filteredTodos = allTodos.filter(({done}) => done === true)
         break
 
       default:
-        this.log(JSON.stringify(todos))
+        filteredTodos = allTodos
     }
+
+    if (filteredTodos.length === 0)
+      return this.log(
+        chalk.green(`nothing ${filter === 'todo' ? 'to do' : 'done'}`),
+      )
+
+    this.log(
+      ...filteredTodos.map(({done, title, idx}) => {
+        const todoRow = `\n[${idx}] ${title}`
+        return done ? chalk.green(todoRow) : chalk.red(todoRow)
+      }),
+      '\n',
+    )
   }
 }

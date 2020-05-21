@@ -1,4 +1,5 @@
 import {Command} from '@oclif/command'
+import * as chalk from 'chalk'
 import {todoList} from '../services'
 
 export default class Add extends Command {
@@ -12,9 +13,9 @@ export default class Add extends Command {
 
     if (todo) {
       todoList.add(todo)
-      this.log('Todo added')
+      this.log(chalk.green('todo added'))
     } else {
-      this.log('Pass something that needs to get done')
+      this.log(chalk.red('what to do?'))
     }
   }
 }
