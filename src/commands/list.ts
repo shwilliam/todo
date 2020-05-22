@@ -6,7 +6,14 @@ import {formatTodoList} from '../utils'
 export default class List extends Command {
   static description = 'list todos'
 
-  static args = [{name: 'filter'}]
+  static args = [
+    {
+      name: 'filter',
+      description: 'filter output by status',
+      required: false,
+      options: ['todo', 'done'],
+    },
+  ]
 
   async run() {
     const {args} = this.parse(List)

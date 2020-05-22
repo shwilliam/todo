@@ -6,7 +6,9 @@ import {formatTodoList} from '../utils'
 export default class Done extends Command {
   static description = 'mark as done'
 
-  static args = [{name: 'index'}]
+  static args = [
+    {name: 'index', description: 'index of target todo', required: true},
+  ]
 
   async run() {
     const {args} = this.parse(Done)

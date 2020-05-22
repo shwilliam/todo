@@ -6,7 +6,7 @@ import {formatTodoList} from '../utils'
 export default class Add extends Command {
   static description = 'add todo'
 
-  static args = [{name: 'todo'}]
+  static args = [{name: 'todo', description: 'todo text', required: true}]
 
   async run() {
     const {args} = this.parse(Add)

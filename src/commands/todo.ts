@@ -6,7 +6,7 @@ import {formatTodoList} from '../utils'
 export default class Todo extends Command {
   static description = 'mark as incomplete'
 
-  static args = [{name: 'index'}]
+  static args = [{name: 'index', description: 'index of target todo'}]
 
   async run() {
     const {args} = this.parse(Todo)
