@@ -11,18 +11,24 @@ class TodoList {
   private todos: Todo[] = []
 
   constructor() {
-    if (fs.existsSync(SAVE_FILE_PATH)) {
-      // TODO: handle parsing error
-      this.todos = JSON.parse(
-        fs.readFileSync(SAVE_FILE_PATH, {encoding: 'utf-8'}),
-      )
+    if (this.exists()) {
+      try {
+        this.todos = JSON.parse(
+          fs.readFileSync(SAVE_FILE_PATH, {encoding: 'utf-8'}),
+        )
+      } catch (_) {
+        console.log(`Hmmm.. ${SAVE_FILE_NAME} looks funny`)
+      }
     } else {
       this.save()
     }
   }
 
-  private save() {
-    // TODO: check if file exists
+  private exists() {
+    return fs.existsSync(SAVE_FILE_PATH)
+  }
+
+  private write() {
     fs.writeFileSync(SAVE_FILE_PATH, JSON.stringify(this.todos), {
       encoding: 'utf-8',
     })
@@ -33,13 +39,15 @@ class TodoList {
   }
 
   add(title: string, done = false) {
-    this.todos.push({done, title})
-    this.save()
+    const todo: Todo = {title, done}
+    this.todos.push(todo)
+    this.write()
+    return todo
   }
 
   remove(idx: number) {
     const [removedTodo] = this.todos.splice(idx, 1)
-    this.save()
+    this.write()
     return removedTodo
   }
 
@@ -47,8 +55,13 @@ class TodoList {
     if (!this.todos[idx]) return
 
     this.todos[idx].done = done
-    this.save()
+    this.write()
     return this.todos[idx]
+  }
+
+  reset() {
+    this.todos = []
+    if (this.exists()) fs.unlinkSync(SAVE_FILE_PATH)
   }
 }
 

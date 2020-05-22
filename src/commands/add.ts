@@ -1,6 +1,7 @@
 import {Command} from '@oclif/command'
 import * as chalk from 'chalk'
 import {todoList} from '../services'
+import {formatTodoList} from '../utils'
 
 export default class Add extends Command {
   static description = 'add todo'
@@ -12,10 +13,12 @@ export default class Add extends Command {
     const {todo} = args
 
     if (todo) {
-      todoList.add(todo)
-      this.log(chalk.green('todo added'))
+      const newTodo = todoList.add(todo)
+      this.log(chalk.cyan(`added '${newTodo.title}'`))
     } else {
       this.log(chalk.red('what to do?'))
     }
+
+    this.log(...formatTodoList(todoList.list()))
   }
 }

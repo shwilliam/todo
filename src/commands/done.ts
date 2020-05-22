@@ -1,6 +1,7 @@
 import {Command} from '@oclif/command'
 import * as chalk from 'chalk'
 import {todoList} from '../services'
+import {formatTodoList} from '../utils'
 
 export default class Done extends Command {
   static description = 'mark as done'
@@ -12,7 +13,10 @@ export default class Done extends Command {
     const {index} = args
 
     const updatedTodo = todoList.done(index)
-    if (updatedTodo) this.log(chalk.green(`finished ${updatedTodo.title}`))
-    else this.log(chalk.red('huh?'))
+    if (updatedTodo) {
+      this.log(chalk.cyan(`finished '${updatedTodo.title}'`))
+    } else this.log(chalk.red('huh?'))
+
+    this.log(...formatTodoList(todoList.list()))
   }
 }

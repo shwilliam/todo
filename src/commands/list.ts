@@ -1,6 +1,7 @@
 import {Command} from '@oclif/command'
 import * as chalk from 'chalk'
 import {todoList} from '../services'
+import {formatTodoList} from '../utils'
 
 export default class List extends Command {
   static description = 'list todos'
@@ -13,7 +14,7 @@ export default class List extends Command {
 
     const allTodos = todoList.list()
 
-    if (allTodos.length === 0) return this.log(chalk.green('all done'))
+    if (allTodos.length === 0) return this.log(chalk.cyan('all done'))
 
     let filteredTodos
     switch (filter) {
@@ -31,15 +32,9 @@ export default class List extends Command {
 
     if (filteredTodos.length === 0)
       return this.log(
-        chalk.green(`nothing ${filter === 'todo' ? 'to do' : 'done'}`),
+        chalk.cyan(`nothing ${filter === 'todo' ? 'to do' : 'done'}`),
       )
 
-    this.log(
-      ...filteredTodos.map(({done, title, idx}) => {
-        const todoRow = `\n[${idx}] ${title}`
-        return done ? chalk.green(todoRow) : chalk.red(todoRow)
-      }),
-      '\n',
-    )
+    this.log(...formatTodoList(filteredTodos))
   }
 }
