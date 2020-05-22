@@ -10,6 +10,7 @@
   "dependencies": {
     "@oclif/command": "^1.6.1",
     "@oclif/config": "^1.15.1",
+    "@oclif/plugin-autocomplete": "^0.2.0",
     "@oclif/plugin-help": "^3.0.1",
     "chalk": "^4.0.0",
     "tslib": "^1.13.0"
@@ -33,15 +34,25 @@
   "engines": {
     "node": ">=8.0.0"
   },
-  "files": ["/bin", "/lib", "/npm-shrinkwrap.json", "/oclif.manifest.json"],
+  "files": [
+    "/bin",
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
   "homepage": "https://github.com/shwilliam/todo",
-  "keywords": ["oclif"],
+  "keywords": [
+    "oclif"
+  ],
   "license": "MIT",
   "main": "lib/index.js",
   "oclif": {
     "commands": "./lib/commands",
     "bin": "t",
-    "plugins": ["@oclif/plugin-help"]
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-autocomplete"
+    ]
   },
   "repository": "shwilliam/todo",
   "scripts": {

@@ -9,9 +9,14 @@ A todo CLI
 
 <!-- toc -->
 * [@shwilliam/todo](#shwilliamtodo)
+* [About](#about)
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
+
+# About
+
+hello world
 
 # Usage
 
@@ -32,31 +37,61 @@ USAGE
 # Commands
 
 <!-- commands -->
-* [`t add [TODO]`](#t-add-todo)
-* [`t done [INDEX]`](#t-done-index)
+* [`t add TODO`](#t-add-todo)
+* [`t autocomplete [SHELL]`](#t-autocomplete-shell)
+* [`t done INDEX`](#t-done-index)
 * [`t help [COMMAND]`](#t-help-command)
 * [`t list [FILTER]`](#t-list-filter)
-* [`t remove [INDEX]`](#t-remove-index)
+* [`t remove INDEX`](#t-remove-index)
 * [`t todo [INDEX]`](#t-todo-index)
 
-## `t add [TODO]`
+## `t add TODO`
 
 add todo
 
 ```
 USAGE
-  $ t add [TODO]
+  $ t add TODO
+
+ARGUMENTS
+  TODO  todo text
 ```
 
 _See code: [src/commands/add.ts](https://github.com/shwilliam/todo/blob/v0.1.0/src/commands/add.ts)_
 
-## `t done [INDEX]`
+## `t autocomplete [SHELL]`
+
+display autocomplete installation instructions
+
+```
+USAGE
+  $ t autocomplete [SHELL]
+
+ARGUMENTS
+  SHELL  shell type
+
+OPTIONS
+  -r, --refresh-cache  Refresh cache (ignores displaying instructions)
+
+EXAMPLES
+  $ t autocomplete
+  $ t autocomplete bash
+  $ t autocomplete zsh
+  $ t autocomplete --refresh-cache
+```
+
+_See code: [@oclif/plugin-autocomplete](https://github.com/oclif/plugin-autocomplete/blob/v0.2.0/src/commands/autocomplete/index.ts)_
+
+## `t done INDEX`
 
 mark as done
 
 ```
 USAGE
-  $ t done [INDEX]
+  $ t done INDEX
+
+ARGUMENTS
+  INDEX  index of target todo
 ```
 
 _See code: [src/commands/done.ts](https://github.com/shwilliam/todo/blob/v0.1.0/src/commands/done.ts)_
@@ -85,17 +120,23 @@ list todos
 ```
 USAGE
   $ t list [FILTER]
+
+ARGUMENTS
+  FILTER  (todo|done) filter output by status
 ```
 
 _See code: [src/commands/list.ts](https://github.com/shwilliam/todo/blob/v0.1.0/src/commands/list.ts)_
 
-## `t remove [INDEX]`
+## `t remove INDEX`
 
 remove todo
 
 ```
 USAGE
-  $ t remove [INDEX]
+  $ t remove INDEX
+
+ARGUMENTS
+  INDEX  index of target todo
 ```
 
 _See code: [src/commands/remove.ts](https://github.com/shwilliam/todo/blob/v0.1.0/src/commands/remove.ts)_
@@ -107,6 +148,9 @@ mark as incomplete
 ```
 USAGE
   $ t todo [INDEX]
+
+ARGUMENTS
+  INDEX  index of target todo
 ```
 
 _See code: [src/commands/todo.ts](https://github.com/shwilliam/todo/blob/v0.1.0/src/commands/todo.ts)_
