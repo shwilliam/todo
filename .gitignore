@@ -4,4 +4,5 @@
 /lib
 /tmp
 /.nyc_output
+oclif.manifest.json
 node_modules
