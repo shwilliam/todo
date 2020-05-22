@@ -2,6 +2,8 @@
 
 A todo CLI
 
+![Example output](https://user-images.githubusercontent.com/38357771/82704719-0767ee80-9c2b-11ea-88c5-c959bc718666.png)
+
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/@shwilliam/todo.svg)](https://npmjs.org/package/@shwilliam/todo)
 [![Downloads/week](https://img.shields.io/npm/dw/@shwilliam/todo.svg)](https://npmjs.org/package/@shwilliam/todo)
