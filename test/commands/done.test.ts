@@ -2,16 +2,10 @@ import {expect, test} from '@oclif/test'
 
 describe('done', () => {
   test
-  .stdout()
-  .command(['done'])
-  .it('runs hello', ctx => {
-    expect(ctx.stdout).to.contain('hello world')
-  })
-
-  test
-  .stdout()
-  .command(['done', '--name', 'jeff'])
-  .it('runs hello --name jeff', ctx => {
-    expect(ctx.stdout).to.contain('hello jeff')
-  })
+    .command(['add', 'banana'])
+    .stdout()
+    .command(['done', '0'])
+    .it('marks complete', ctx => {
+      expect(ctx.stdout).to.contain("finished 'banana'")
+    })
 })

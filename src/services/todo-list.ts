@@ -3,8 +3,10 @@ import * as path from 'path'
 import * as os from 'os'
 import {Todo} from './todo-list.d'
 
-const SAVE_FILE_DIR = os.homedir()
-const SAVE_FILE_NAME = 'todo.json'
+const SAVE_FILE_DIR =
+  process.env['NODE_ENV'] === 'test' ? os.tmpdir() : os.homedir()
+const SAVE_FILE_NAME =
+  process.env['NODE_ENV'] === 'test' ? 'todo.test.json' : 'todo.json'
 const SAVE_FILE_PATH = path.join(SAVE_FILE_DIR, SAVE_FILE_NAME)
 
 class TodoList {
@@ -20,7 +22,7 @@ class TodoList {
         console.log(`Hmmm.. ${SAVE_FILE_NAME} looks funny`)
       }
     } else {
-      this.save()
+      this.write()
     }
   }
 
