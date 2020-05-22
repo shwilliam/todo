@@ -37,7 +37,7 @@ USAGE
 * [`t done INDEX`](#t-done-index)
 * [`t help [COMMAND]`](#t-help-command)
 * [`t list [FILTER]`](#t-list-filter)
-* [`t remove INDEX`](#t-remove-index)
+* [`t remove TARGET`](#t-remove-target)
 * [`t todo [INDEX]`](#t-todo-index)
 
 ## `t add TODO`
@@ -122,16 +122,16 @@ ARGUMENTS
 
 _See code: [src/commands/list.ts](https://github.com/shwilliam/todo/blob/v0.1.1/src/commands/list.ts)_
 
-## `t remove INDEX`
+## `t remove TARGET`
 
 remove todo
 
 ```
 USAGE
-  $ t remove INDEX
+  $ t remove TARGET
 
 ARGUMENTS
-  INDEX  index of target todo
+  TARGET  index of target todo or 'all'
 ```
 
 _See code: [src/commands/remove.ts](https://github.com/shwilliam/todo/blob/v0.1.1/src/commands/remove.ts)_

@@ -7,15 +7,25 @@ export default class Remove extends Command {
   static description = 'remove todo'
 
   static args = [
-    {name: 'index', description: 'index of target todo', required: true},
+    {
+      name: 'target',
+      description: "index of target todo or 'all'",
+      required: true,
+    },
   ]
 
   async run() {
     const {args} = this.parse(Remove)
-    const {index} = args
+    const {target} = args
 
-    if (index) {
-      const removedTodo = todoList.remove(index)
+    if (target) {
+      if (target === 'all') {
+        todoList.removeAll()
+        this.log(chalk.cyan('todos cleared'))
+        return
+      }
+
+      const removedTodo = todoList.remove(target)
 
       if (removedTodo) {
         this.log(chalk.cyan(`removed '${removedTodo.title}'`))

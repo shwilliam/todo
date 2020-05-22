@@ -53,6 +53,11 @@ class TodoList {
     return removedTodo
   }
 
+  removeAll() {
+    this.todos = []
+    this.write()
+  }
+
   done(idx: number, done = true) {
     if (!this.todos[idx]) return
 
@@ -62,8 +67,8 @@ class TodoList {
   }
 
   reset() {
-    this.todos = []
-    if (this.exists()) fs.unlinkSync(SAVE_FILE_PATH)
+    this.removeAll()
+    fs.unlinkSync(SAVE_FILE_PATH)
   }
 }
 
