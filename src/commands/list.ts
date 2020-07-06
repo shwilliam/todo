@@ -11,7 +11,7 @@ export default class List extends Command {
       name: 'filter',
       description: 'filter output by status',
       required: false,
-      options: ['todo', 'done'],
+      options: ['todo', 'done', 'important'],
     },
   ]
 
@@ -33,13 +33,17 @@ export default class List extends Command {
         filteredTodos = allTodos.filter(({done}) => done === true)
         break
 
+      case 'important':
+        filteredTodos = allTodos.filter(({important}) => important === true)
+        break
+
       default:
         filteredTodos = allTodos
     }
 
     if (filteredTodos.length === 0)
       return this.log(
-        chalk.cyan(`nothing ${filter === 'todo' ? 'to do' : 'done'}`),
+        chalk.cyan(`nothing ${filter === 'todo' ? 'to do' : filter}`),
       )
 
     this.log(...formatTodoList(filteredTodos))

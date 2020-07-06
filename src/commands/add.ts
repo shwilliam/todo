@@ -14,7 +14,11 @@ export default class Add extends Command {
 
     if (todo) {
       const newTodo = todoList.add(todo)
-      this.log(chalk.cyan(`added '${newTodo.title}'`))
+      this.log(
+        chalk.cyan(
+          `added ${newTodo.important ? 'important ' : ''}'${newTodo.title}'`,
+        ),
+      )
     } else {
       this.log(chalk.red('what to do?'))
     }

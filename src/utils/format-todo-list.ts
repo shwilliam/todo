@@ -9,9 +9,10 @@ export const formatTodoList = (todos: IndexedTodo[]) => {
   )
 
   return [
-    ...todos.map(({done, title, idx}) => {
+    ...todos.map(({done, important, title, idx}) => {
       const todoRow = `\n [${idx}] ${title} `.padEnd(todoMaxLength + 7, ' ')
-      return done ? chalk.dim.strikethrough(todoRow) : chalk.black(todoRow)
+      const doneIndicator = done ? chalk.dim.strikethrough : chalk.black
+      return important ? doneIndicator.bold(todoRow) : doneIndicator(todoRow)
     }),
     '\n',
   ]

@@ -119,7 +119,7 @@ USAGE
   $ t list [FILTER]
 
 ARGUMENTS
-  FILTER  (todo|done) filter output by status
+  FILTER  (todo|done|important) filter output by status
 ```
 
 _See code: [src/commands/list.ts](https://github.com/shwilliam/todo/blob/v0.1.1/src/commands/list.ts)_

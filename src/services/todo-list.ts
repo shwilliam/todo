@@ -40,10 +40,16 @@ class TodoList {
     return this.todos.map((todo, idx) => ({...todo, idx}))
   }
 
-  add(title: string, done = false) {
-    const todo: Todo = {title, done}
+  add(titleInput: string, done = false) {
+    const important = titleInput.substr(-1) === '!'
+    const title = important
+      ? titleInput.substr(0, titleInput.length - 1)
+      : titleInput
+    const todo: Todo = {title, done, important}
+
     this.todos.push(todo)
     this.write()
+
     return todo
   }
 
