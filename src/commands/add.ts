@@ -4,7 +4,7 @@ import {todoList} from '../services'
 import {formatTodoList} from '../utils'
 
 export default class Add extends Command {
-  static description = 'add todo'
+  static description = 'add todo, use ! suffix for important'
 
   static args = [{name: 'todo', description: 'todo text', required: true}]
 

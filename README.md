@@ -23,7 +23,7 @@ $ npm install -g @shwilliam/todo
 $ t COMMAND
 running command...
 $ t (-v|--version|version)
-@shwilliam/todo/0.1.1 darwin-x64 node-v14.1.0
+@shwilliam/todo/0.1.2 darwin-x64 node-v14.1.0
 $ t --help [COMMAND]
 USAGE
   $ t COMMAND
@@ -44,7 +44,7 @@ USAGE
 
 ## `t add TODO`
 
-add todo
+add todo, use ! suffix for important
 
 ```
 USAGE
@@ -54,7 +54,7 @@ ARGUMENTS
   TODO  todo text
 ```
 
-_See code: [src/commands/add.ts](https://github.com/shwilliam/todo/blob/v0.1.1/src/commands/add.ts)_
+_See code: [src/commands/add.ts](https://github.com/shwilliam/todo/blob/v0.1.2/src/commands/add.ts)_
 
 ## `t autocomplete [SHELL]`
 
@@ -91,7 +91,7 @@ ARGUMENTS
   INDEX  index of target todo
 ```
 
-_See code: [src/commands/done.ts](https://github.com/shwilliam/todo/blob/v0.1.1/src/commands/done.ts)_
+_See code: [src/commands/done.ts](https://github.com/shwilliam/todo/blob/v0.1.2/src/commands/done.ts)_
 
 ## `t help [COMMAND]`
 
@@ -122,7 +122,7 @@ ARGUMENTS
   FILTER  (todo|done|important) filter output by status
 ```
 
-_See code: [src/commands/list.ts](https://github.com/shwilliam/todo/blob/v0.1.1/src/commands/list.ts)_
+_See code: [src/commands/list.ts](https://github.com/shwilliam/todo/blob/v0.1.2/src/commands/list.ts)_
 
 ## `t remove TARGET`
 
@@ -136,7 +136,7 @@ ARGUMENTS
   TARGET  index of target todo or 'all'
 ```
 
-_See code: [src/commands/remove.ts](https://github.com/shwilliam/todo/blob/v0.1.1/src/commands/remove.ts)_
+_See code: [src/commands/remove.ts](https://github.com/shwilliam/todo/blob/v0.1.2/src/commands/remove.ts)_
 
 ## `t todo [INDEX]`
 
@@ -150,5 +150,5 @@ ARGUMENTS
   INDEX  index of target todo
 ```
 
-_See code: [src/commands/todo.ts](https://github.com/shwilliam/todo/blob/v0.1.1/src/commands/todo.ts)_
+_See code: [src/commands/todo.ts](https://github.com/shwilliam/todo/blob/v0.1.2/src/commands/todo.ts)_
 <!-- commandsstop -->
